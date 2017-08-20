@@ -1,0 +1,10 @@
+---
+- hosts: all
+  vars: 
+    description: This is a test (customised variables can also be called in tempaltes apart from the facts)
+  tasks:
+  - name: printing the basic info 
+    template:
+      src: info.j2
+      dest: /home/ansible/info1
+   

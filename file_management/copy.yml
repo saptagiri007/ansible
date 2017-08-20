@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+  - file: 
+      src: /opt/foo
+      dest: /opt/foo1o  
+      mode: 0644
+      owner: root
+      group: root
+      

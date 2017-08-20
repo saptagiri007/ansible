@@ -1,0 +1,6 @@
+---
+- hosts: all 
+  gather_facts: no
+  tasks: 
+  - name: echo all the server
+    shell: echo Hello World!!! > helloworld.txt

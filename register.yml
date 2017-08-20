@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+  - name: print contet of file 
+    command: cat /etc/passwd123 
+    register: cat_contents
+    ignore_errors: yes
+  - name: display contents
+    debug:
+      msg: "{{ cat_contents}}"

@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+  - name: install httpd on redhat
+    yum: 
+     name: httpd
+     state: present
+    when: ansible_os_family == "RedHat"
+  - name: Print free memory
+    debug:
+      msg: "free memory is {{ ansible_memory_mb.real.free}}"
+

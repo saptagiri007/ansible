@@ -1,0 +1,22 @@
+---
+- hosts: localhost 
+  tasks: 
+   - name: install httpd packakeges in Redhat 
+     yum:
+       name: httpd
+       state: installed
+     when: ansible_os_family == 'Redhat'
+   - name: service to start and enabled 
+     service:
+       name: httpd
+       state: started
+   - name: copy the home page 
+     template:
+       src:  html.j2
+       dest: /var/www/html/index.html
+     notify: restart httpd
+  handlers:
+   - name: restart httpd
+     service: 
+       name: httpd 
+       state: restarted

@@ -1,0 +1,8 @@
+---
+- hosts: all 
+  tasks:
+  - file: 
+      path: /opt/ansible1
+      state: directory
+      mode: 0770
+

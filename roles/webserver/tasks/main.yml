@@ -1,0 +1,4 @@
+---
+  - name: install httpd
+    yum: pkg=httpd state=latest
+    notify: restart httpd 

@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+  - file:
+    path: /opt/ansible
+    state: touch 
+    mode: "u+rw,g+rw,o-rwx"
+   

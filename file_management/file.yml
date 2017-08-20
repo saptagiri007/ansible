@@ -1,0 +1,10 @@
+#we will creae file and give it attributes
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+   - file: 
+       path: /tmp/giri
+       state: touch
+       mode: 0644
+    

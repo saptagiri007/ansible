@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+  - name: Shutdown compute nodes
+    shell: sleep 2 && /sbin/shutdown -h now "Ansible shutdown"
+  
+ 

@@ -1,0 +1,38 @@
+---
+- hosts: localhost 
+  tasks: 
+   - name: install httpd packakeges in Redhat 
+     yum:
+       name: httpd
+       state: installed
+     when: ansible_os_family == 'Redhat'
+     tags: 
+       - install 
+   - name: install apache on ubuntu
+     apt:
+       name: apache2
+       state: installed
+     when: ansible_os_family == 'Debian'
+     tags:
+       - install 
+       - service
+   - name: print memory
+     debug:
+       msg: free memory is {{ ansible_memory_mb.real.free }}
+     tags:
+       - debug  
+   - name: service to start and enabled 
+     service:
+       name: httpd
+       state: enabled
+     when: ansible_os_family == 'Redhat'
+   - name: copy the home page 
+     template:
+       src:  html.j2
+       dest: /var/www/html/index.html
+     notify: restart httpd
+  handlers:
+   - name: restart httpd
+     service: 
+       name: httpd 
+       state: restarted

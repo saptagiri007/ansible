@@ -1,0 +1,13 @@
+---
+- hosts: localhost 
+  tasks: 
+   - name: install httpd packakeges in Redhat 
+     yum:
+       name: httpd
+       state: installed
+     notify: restart httpd
+  handlers:
+   - name: restart httpd
+     service: 
+       name: httpd 
+       state: restarted
