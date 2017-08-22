@@ -1,11 +1,11 @@
 ---
-- hosts: localhost
+- hosts: all
   connection: ssh
   pre_tasks:
   - name: When did the Role start
     raw: date > /home/ansible/start.log
   roles:
-    - webserver
+    - handlers
   post_tasks:
   - name: when did the role end 
     raw: date > /home/ansible/stop.log

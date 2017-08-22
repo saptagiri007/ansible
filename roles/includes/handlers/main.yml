@@ -1,0 +1,3 @@
+- name: Restart HTTPD
+  service:  name={{ redhat_httpd }} state=restarted 
+  ignore_errors: yes

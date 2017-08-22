@@ -1,0 +1,5 @@
+- name: install httpd
+  yum: pkg={{ redhat_httpd }} state=latest
+  when: "ansible_os_family == 'RedHat'"
+  ignore_errors: yes
+  notify: Restart HTTPD 

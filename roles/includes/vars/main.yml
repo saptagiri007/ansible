@@ -1,0 +1,2 @@
+redhat_httpd: httpd
+debian_httpd: apache2
